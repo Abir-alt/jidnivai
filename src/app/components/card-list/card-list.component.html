@@ -1,0 +1,15 @@
+<div class="container">
+    <h2>Cards</h2>
+
+    <!-- Card List -->
+    <div *ngFor="let card of cards$ | async" class="card mb-3">
+        <div class="card-header">
+            <h5 class="card-title mb-0">{{ card.cardType }}</h5>
+            <p class="card-subtitle text-muted">Card Number: {{ card.cardNumber }}</p>
+        </div>
+        <div class="card-body">
+            <p><strong>Expiry Date:</strong> {{ card.expiryDate }}</p>
+            <p><strong>Limit:</strong> ${{ card.limit }}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+    <h2>Loans</h2>
+
+    <!-- Loan Cards -->
+    <div *ngFor="let loan of loans$ | async" class="card mb-3">
+        <div class="card-header">
+            <h5 class="card-title mb-0">{{ loan.loanType }}</h5>
+            <p class="card-subtitle text-muted">Amount: ${{ loan.amount }}</p>
+        </div>
+        <div class="card-body">
+            <p><strong>Interest Rate:</strong> {{ loan.interestRate }}%</p>
+            <p><strong>Duration:</strong> {{ loan.duration }} months</p>
+        </div>
+    </div>
+</div>

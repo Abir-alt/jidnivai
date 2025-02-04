@@ -1,0 +1,42 @@
+<div class="container">
+    <h2>Create Account</h2>
+    <div class="card">
+        <div class="card-body">
+            <form [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+                <!-- Account Holder Name -->
+                <div class="mb-3">
+                    <label for="accountHolderName" class="form-label">Account Holder Name</label>
+                    <input type="text" class="form-control" id="accountHolderName" formControlName="accountHolderName" required>
+                    <div class="text-danger" *ngIf="accountForm.get('accountHolderName')?.invalid && accountForm.get('accountHolderName')?.touched">
+                        Name is required
+                    </div>
+                </div>
+
+                <!-- Initial Balance -->
+                <div class="mb-3">
+                    <label for="balance" class="form-label">Initial Balance</label>
+                    <input type="number" class="form-control" id="balance" formControlName="balance" required>
+                    <div class="text-danger" *ngIf="accountForm.get('balance')?.invalid && accountForm.get('balance')?.touched">
+                        Balance is required
+                    </div>
+                </div>
+
+                <!-- Account Type -->
+                <div class="mb-3">
+                    <label for="accountType" class="form-label">Account Type</label>
+                    <select class="form-select" id="accountType" formControlName="accountType" required>
+                        <option value="" disabled selected>Select an account type</option>
+                        <option value="Savings">Savings</option>
+                        <option value="Checking">Checking</option>
+                    </select>
+                    <div class="text-danger" *ngIf="accountForm.get('accountType')?.invalid && accountForm.get('accountType')?.touched">
+                        Account type is required
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button class="btn btn-primary" type="submit" [disabled]="accountForm.invalid">Create Account</button>
+            </form>
+        </div>
+    </div>
+</div>

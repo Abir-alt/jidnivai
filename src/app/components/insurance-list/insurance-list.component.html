@@ -1,0 +1,15 @@
+<div class="container">
+    <h2>Insurances</h2>
+
+    <!-- Insurance Cards -->
+    <div *ngFor="let insurance of insurances$ | async" class="card mb-3">
+        <div class="card-header">
+            <h5 class="card-title mb-0">{{ insurance.insuranceType }}</h5>
+            <p class="card-subtitle text-muted">Policy Number: {{ insurance.policyNumber }}</p>
+        </div>
+        <div class="card-body">
+            <p><strong>Premium:</strong> ${{ insurance.premium }}</p>
+            <p><strong>Coverage:</strong> ${{ insurance.coverage }}</p>
+        </div>
+    </div>
+</div>

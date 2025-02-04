@@ -1,0 +1,18 @@
+<div class="container">
+    <h2>Account Details</h2>
+
+    <div class="card" *ngIf="account$ | async as account">
+        <div class="card-header">
+            <h5 class="card-title mb-0">{{ account.accountHolderName }}</h5>
+            <p class="card-subtitle text-muted">Account Number: {{ account.accountNumber }}</p>
+        </div>
+        <div class="card-body">
+            <p><strong>Balance:</strong> ${{ account.balance }}</p>
+            <p><strong>Account Type:</strong> {{ account.accountType }}</p>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-success me-2" (click)="deposit(account.id)">Deposit</button>
+            <button class="btn btn-danger" (click)="withdraw(account.id)">Withdraw</button>
+        </div>
+    </div>
+</div>

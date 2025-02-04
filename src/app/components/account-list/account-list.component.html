@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>Accounts</h2>
+
+    <!-- Create Account Button -->
+    <button class="btn btn-primary mb-3" routerLink="/accounts/create">
+        Create New Account
+    </button>
+
+    <!-- Account Cards -->
+    <div *ngFor="let account of accounts$ | async" class="card mb-3">
+        <div class="card-header">
+            <h5 class="mb-0">{{ account.accountHolderName }}</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text"><strong>Balance:</strong> ${{ account.balance }}</p>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-info" [routerLink]="['/accounts', account.id]">Details</button>
+        </div>
+    </div>
+</div>
